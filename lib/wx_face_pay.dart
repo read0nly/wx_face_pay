@@ -8,3 +8,4 @@
  */
 
 export 'wx_face_pay_plugin.dart';
+export 'wx_face_pay_model.dart';

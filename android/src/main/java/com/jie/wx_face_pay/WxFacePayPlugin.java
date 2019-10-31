@@ -18,6 +18,7 @@ import com.tencent.wxpayface.WxPayFace;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.flutter.Log;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
@@ -273,7 +274,8 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().startCodeScanner(new IWxPayfaceCallback() {
             @Override
             public void response(Map info) throws RemoteException {
-                result.success(info);
+                Log.i("info",info.toString());
+//                result.success(info);
             }
         });
     }
