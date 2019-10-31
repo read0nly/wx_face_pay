@@ -35,6 +35,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation 'org.jetbrains:annotations-java5:15.0'
 }
 
