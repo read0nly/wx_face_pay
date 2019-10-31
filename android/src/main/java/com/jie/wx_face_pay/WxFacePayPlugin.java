@@ -192,11 +192,11 @@ public class WxFacePayPlugin implements MethodCallHandler {
 
     public void updateWxpayfacePayResult(MethodCall call, final Result result) {
         Map<String, String> ben = new HashMap();
-        ben.put("appid", call.<String>argument("appId"));
-        ben.put("mch_id", call.<String>argument("mchId"));
-        ben.put("store_id", call.<String>argument("storeId"));
-        ben.put("authinfo", call.<String>argument("authInfo"));
-        ben.put("payresult", call.<String>argument("payResult"));
+        ben.put("appid", call.<String>argument("appid"));
+        ben.put("mch_id", call.<String>argument("mch_id"));
+        ben.put("store_id", call.<String>argument("store_id"));
+        ben.put("authinfo", call.<String>argument("authinfo"));
+        ben.put("payresult", call.<String>argument("payresult"));
         WxPayFace.getInstance().updateWxpayfacePayResult(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
@@ -207,7 +207,7 @@ public class WxFacePayPlugin implements MethodCallHandler {
 
     public void stopWxpayface(MethodCall call, final Result result) {
         Map<String, String> ben = new HashMap();
-        ben.put("authinfo", call.<String>argument("authInfo"));
+        ben.put("authinfo", call.<String>argument("authinfo"));
         WxPayFace.getInstance().stopWxpayface(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
@@ -219,12 +219,12 @@ public class WxFacePayPlugin implements MethodCallHandler {
 
     public void reportOrder(MethodCall call, final Result result) {
         Map<String, String> ben = new HashMap();
-        ben.put("mch_id", call.<String>argument("mchId"));
-        String subMchId = call.<String>argument("subMchId");
+        ben.put("mch_id", call.<String>argument("mch_id"));
+        String subMchId = call.<String>argument("sub_mch_id");
         if (subMchId != null) {
             ben.put("sub_mch_id", subMchId);
         }
-        ben.put("out_trade_no", call.<String>argument("outTradeNo"));
+        ben.put("out_trade_no", call.<String>argument("out_trade_no"));
 
         WxPayFace.getInstance().reportOrder(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
@@ -238,7 +238,7 @@ public class WxFacePayPlugin implements MethodCallHandler {
     public void reportInfo(MethodCall call, final Result result) {
         Map<String, String> ben = new HashMap();
         ben.put("item", call.<String>argument("item"));
-        ben.put("item_value", call.<String>argument("itemValue"));
+        ben.put("item_value", call.<String>argument("item_value"));
         WxPayFace.getInstance().reportInfo(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
@@ -260,7 +260,7 @@ public class WxFacePayPlugin implements MethodCallHandler {
 
     public void updateWxpayfaceBannerState(MethodCall call, final Result result) {
         Map<String, String> map = new HashMap();
-        map.put("banner_state", call.<String>argument("bannerState"));
+        map.put("banner_state", call.<String>argument("banner_state"));
         WxPayFace.getInstance().updateWxpayfaceBannerState(map, new IWxPayfaceCallback() {
             @Override
             public void response(Map info) throws RemoteException {
