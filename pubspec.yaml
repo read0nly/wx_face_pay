@@ -1,8 +1,8 @@
 name: wx_face_pay
-description: wechat face pay for Android.
+description: A Flutter plugin include wechat face pay API for Android.
 version: 0.0.1
-author:
-homepage:
+author: read0nly <nj.readonly@gmail.com>
+homepage: https://https://github.com/read0nly/wx_face_pay
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
