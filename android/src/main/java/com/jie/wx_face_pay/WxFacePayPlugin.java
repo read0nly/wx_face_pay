@@ -1,3 +1,11 @@
+/**
+ * @Author: read0nly
+ * @GitHub: https://github.com/read0nly
+ * @Email: nj.readonly@gmailcom
+ * @Description:
+ * @Date: 2019/10/31
+ */
+
 package com.jie.wx_face_pay;
 
 import android.content.Context;

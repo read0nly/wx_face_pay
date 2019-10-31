@@ -1,5 +1,13 @@
-import 'package:flutter/cupertino.dart';
+// ignore: slash_for_doc_comments
+/**
+ * @Author: read0nly
+ * @GitHub: https://github.com/read0nly
+ * @Email: nj.readonly@gmailcom
+ * @Description:
+ * @Date: 2019/10/31
+ */
 
+import 'package:flutter/cupertino.dart';
 import 'wx_json_parse_util.dart';
 
 // ignore: non_constant_identifier_names
