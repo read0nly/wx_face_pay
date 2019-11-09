@@ -185,7 +185,8 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().getWxpayfaceCode(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                System.out.print(map.toString());
+//                result.success(map);
             }
         });
     }
@@ -274,7 +275,7 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().startCodeScanner(new IWxPayfaceCallback() {
             @Override
             public void response(Map info) throws RemoteException {
-                Log.i("info",info.toString());
+                Log.i("info", info.toString());
 //                result.success(info);
             }
         });
