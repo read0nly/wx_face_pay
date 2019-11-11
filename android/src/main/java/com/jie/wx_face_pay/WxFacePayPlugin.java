@@ -8,6 +8,7 @@
 
 package com.jie.wx_face_pay;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.RemoteException;
 
@@ -30,12 +31,14 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
  */
 public class WxFacePayPlugin implements MethodCallHandler {
     static Context thisContext;
+    static Activity thisActivity;
 
     /**
      * Plugin registration.
      */
     public static void registerWith(Registrar registrar) {
         thisContext = registrar.context();
+        thisActivity = registrar.activity();
         final MethodChannel channel = new MethodChannel(registrar.messenger(), "wx_face_pay");
         channel.setMethodCallHandler(new WxFacePayPlugin());
     }
@@ -79,7 +82,13 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().initWxpayface(thisContext, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
             }
         });
     }
@@ -89,7 +98,13 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().getWxpayfaceRawdata(new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
             }
         });
     }
@@ -137,7 +152,13 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().getWxpayfaceUserInfo(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
             }
         });
     }
@@ -186,7 +207,14 @@ public class WxFacePayPlugin implements MethodCallHandler {
             @Override
             public void response(Map map) throws RemoteException {
                 System.out.print(map.toString());
-//                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
+
             }
         });
     }
@@ -202,7 +230,13 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().updateWxpayfacePayResult(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
             }
         });
     }
@@ -213,7 +247,13 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().stopWxpayface(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
             }
         });
     }
@@ -231,7 +271,13 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().reportOrder(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
             }
         });
     }
@@ -244,7 +290,13 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().reportInfo(ben, new IWxPayFaceCallbackAIDL.Stub() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
             }
         });
     }
@@ -255,7 +307,13 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().reportPaycode(ben, new IWxPayfaceCallback() {
             @Override
             public void response(Map map) throws RemoteException {
-                result.success(map);
+                final Map temp = map;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
             }
         });
     }
@@ -275,8 +333,14 @@ public class WxFacePayPlugin implements MethodCallHandler {
         WxPayFace.getInstance().startCodeScanner(new IWxPayfaceCallback() {
             @Override
             public void response(Map info) throws RemoteException {
-                Log.i("info", info.toString());
-//                result.success(info);
+                final Map temp = info;
+                thisActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.success(temp);
+                    }
+                });
+
             }
         });
     }
